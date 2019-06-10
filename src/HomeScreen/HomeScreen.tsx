@@ -13,9 +13,10 @@ export default class HomeScreen extends Component<Props> {
         const { navigation } = this.props;
         return (
             <Container>
+                <StatusBar barStyle="light-content" backgroundColor="#4F6D7A" />
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+                        <Button transparent onPress={() => navigation.openDrawer()}>
                             <Icon name="menu" />
                         </Button>
                     </Left>

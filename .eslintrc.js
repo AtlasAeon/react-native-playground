@@ -21,6 +21,8 @@ module.exports = {
             allowTypedFunctionExpressions: true,
         },
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
+        'react/display-name': ['warn', { 'ignoreTranspilerName': false }],
+        '@typescript-eslint/no-empty-interface': 'warn',
     },
     settings: {
         react: {
