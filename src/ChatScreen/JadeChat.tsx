@@ -22,12 +22,12 @@ interface Prop {
 
 export default class JadeChat extends Component<Prop> {
     render() {
-        const { navigate, dispatch } = this.props.navigation;
+        const { navigation } = this.props;
         return (
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => navigate('DrawerOpen')}>
+                        <Button transparent onPress={() => navigation.openDrawer()}>
                             <Icon name="menu" />
                         </Button>
                     </Left>
@@ -53,7 +53,7 @@ export default class JadeChat extends Component<Prop> {
                                     params: { name: 'Jade' },
                                 }),
                             });
-                            dispatch(navigationAction);
+                            navigation.dispatch(navigationAction);
                         }}
                     >
                         <Text>Goto Jade Profile</Text>

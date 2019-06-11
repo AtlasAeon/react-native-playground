@@ -16,8 +16,12 @@ import {
 } from 'native-base';
 import { NavigationScreenProp, NavigationActions } from 'react-navigation';
 
+interface Params {
+    name: string;
+}
+
 interface Prop {
-    navigation: NavigationScreenProp<{}>;
+    navigation: NavigationScreenProp<{}, Params>;
 }
 
 export default class NineChat extends Component<Prop> {

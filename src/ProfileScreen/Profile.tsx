@@ -17,7 +17,7 @@ export default class Profile extends Component<Prop> {
             header: (
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+                        <Button transparent onPress={() => navigation.openDrawer()}>
                             <Icon name="menu" />
                         </Button>
                     </Left>

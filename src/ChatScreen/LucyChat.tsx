@@ -27,7 +27,7 @@ export default class LucyChat extends Component<Prop> {
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+                        <Button transparent onPress={() => navigation.openDrawer()}>
                             <Icon name="menu" />
                         </Button>
                     </Left>

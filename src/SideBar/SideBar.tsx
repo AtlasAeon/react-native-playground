@@ -14,7 +14,7 @@ export default class SideBar extends Component<PropsWithChildren<DrawerItemsProp
                     <Image
                         source={{
                             uri:
-                                'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/drawer-cover.png',
+                                'https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/master/assets/drawer-cover.png',
                         }}
                         style={{
                             height: 120,
@@ -22,12 +22,11 @@ export default class SideBar extends Component<PropsWithChildren<DrawerItemsProp
                             justifyContent: 'center',
                             alignItems: 'center',
                         }}
-                    ></Image>
+                    />
                     <Image
                         style={{ height: 80, width: 70 }}
                         source={{
-                            uri:
-                                'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/logo.png',
+                            uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/master/assets/logo.png',
                         }}
                     />
                     <List
