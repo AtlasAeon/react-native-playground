@@ -58,17 +58,19 @@ interface State {
     isReady: boolean;
 }
 
-const AppNavigator = createStackNavigator({
-    Home: HomeScreen,
-});
+const AppNavigator = createStackNavigator(
+    {
+        Home: { screen: HomeScreen },
+    },
+    {
+        initialRouteName: 'Home',
+    },
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends Component<{}, State> {
     state = { isReady: false };
-    static navigationOptions = {
-        header: null,
-    };
     async componentWillMount() {
         // await Expo.Font.loadAsync({
         //     Roboto: require('native-base/Fonts/Roboto.ttf'),

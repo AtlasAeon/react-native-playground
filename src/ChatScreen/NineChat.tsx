@@ -25,6 +25,10 @@ interface Prop {
 }
 
 export default class NineChat extends Component<Prop> {
+    static navigationOptions = {
+        title: 'Nine',
+    };
+
     render() {
         const { navigation } = this.props;
         return (
@@ -51,7 +55,7 @@ export default class NineChat extends Component<Prop> {
                         style={{ marginTop: 20, alignSelf: 'center' }}
                         onPress={() => {
                             const navigationAction = NavigationActions.navigate({
-                                routeName: 'ProfileScreen',
+                                routeName: 'Profile',
                                 params: { name: 'Nine' },
                             });
                             navigation.dispatch(navigationAction);

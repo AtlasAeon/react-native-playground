@@ -21,6 +21,10 @@ interface Prop {
 }
 
 export default class JadeChat extends Component<Prop> {
+    static navigationOptions = {
+        title: 'Jade',
+    };
+
     render() {
         const { navigation } = this.props;
         return (
@@ -47,7 +51,7 @@ export default class JadeChat extends Component<Prop> {
                         style={{ marginTop: 20, alignSelf: 'center' }}
                         onPress={() => {
                             const navigationAction = NavigationActions.navigate({
-                                routeName: 'ProfileScreen', // <==== this is Profile tabNavigator
+                                routeName: 'Profile', // <==== this is Profile tabNavigator
                                 action: NavigationActions.navigate({
                                     routeName: 'Profile', // <===== this is defaultScreen for Porfile
                                     params: { name: 'Jade' },

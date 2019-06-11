@@ -2,15 +2,11 @@ import React from 'react';
 import LucyChat from './LucyChat';
 import JadeChat from './JadeChat';
 import NineChat from './NineChat';
-import { createBottomTabNavigator, NavigationScreenProp } from 'react-navigation';
+import { createBottomTabNavigator, NavigationScreenProp, NavigationState } from 'react-navigation';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
 
-interface State {
-    index: number;
-}
-
 interface Props {
-    navigation: NavigationScreenProp<State>;
+    navigation: NavigationScreenProp<NavigationState>;
 }
 
 const MainScreenNavigator = createBottomTabNavigator(

@@ -1,9 +1,21 @@
 import React, { Component, PropsWithChildren } from 'react';
-import { Image } from 'react-native';
-import { Container, Content, Text, List, ListItem } from 'native-base';
+import { Image, ImageBackground, StyleSheet } from 'react-native';
+import { Container, Content, Text, List, ListItem, Drawer } from 'native-base';
 import { DrawerItemsProps } from 'react-navigation';
 
 const routes: string[] = ['Home', 'Chat', 'Profile'];
+const styles = StyleSheet.create({
+    drawerCover: {
+        height: 120,
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    logo: {
+        height: 80,
+        width: 70,
+    },
+});
 
 export default class SideBar extends Component<PropsWithChildren<DrawerItemsProps>> {
     render() {
@@ -11,24 +23,21 @@ export default class SideBar extends Component<PropsWithChildren<DrawerItemsProp
         return (
             <Container>
                 <Content>
-                    <Image
+                    <ImageBackground
                         source={{
                             uri:
-                                'https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/master/assets/drawer-cover.png',
+                                'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png',
                         }}
-                        style={{
-                            height: 120,
-                            alignSelf: 'stretch',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                    />
-                    <Image
-                        style={{ height: 80, width: 70 }}
-                        source={{
-                            uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/blob/master/assets/logo.png',
-                        }}
-                    />
+                        style={styles.drawerCover}
+                    >
+                        <Image
+                            style={styles.logo}
+                            source={{
+                                uri:
+                                    'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png',
+                            }}
+                        />
+                    </ImageBackground>
                     <List
                         dataArray={routes}
                         renderRow={data => {

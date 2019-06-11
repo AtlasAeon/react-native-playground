@@ -14,13 +14,17 @@ import {
     Button,
     Text,
 } from 'native-base';
-import { NavigationScreenProp, NavigationActions } from 'react-navigation';
+import { NavigationScreenProp, NavigationActions, NavigationState } from 'react-navigation';
 
 interface Prop {
-    navigation: NavigationScreenProp<{}>;
+    navigation: NavigationScreenProp<NavigationState>;
 }
 
 export default class LucyChat extends Component<Prop> {
+    static navigationOptions = {
+        Title: 'Lucy',
+    };
+
     render() {
         const { navigation } = this.props;
         return (
@@ -47,10 +51,10 @@ export default class LucyChat extends Component<Prop> {
                         style={{ marginTop: 20, alignSelf: 'center' }}
                         onPress={() => {
                             const navigationAction = NavigationActions.navigate({
-                                routeName: 'ProfileScreen',
+                                routeName: 'Profile',
                                 params: { name: 'Lucy' },
                             });
-                            navigation.dispatch(navigationAction);
+                            this.props.navigation.dispatch(navigationAction);
                         }}
                     >
                         <Text>Goto Lucy Profile</Text>

@@ -3,28 +3,34 @@ import { StatusBar } from 'react-native';
 import { Container, Header, Title, Left, Icon, Right, Button, Body, Content, Text, Card, CardItem } from 'native-base';
 import { NavigationScreenProp } from 'react-navigation';
 
+interface State {}
+
 interface Props {
-    navigation: NavigationScreenProp<{}>;
+    navigation: NavigationScreenProp<State>;
     children: never;
     //children?: import('react').ReactNode;
 }
-export default class HomeScreen extends Component<Props> {
+export default class HomeScreen extends Component<Props, State> {
+    navigationOptions = {
+        headerTitle: 'Home',
+    };
+
     render() {
         const { navigation } = this.props;
         return (
             <Container>
                 <StatusBar barStyle="light-content" backgroundColor="#4F6D7A" />
-                <Header>
+                {/* <Header>
                     <Left>
                         <Button transparent onPress={() => navigation.openDrawer()}>
                             <Icon name="menu" />
                         </Button>
                     </Left>
                     <Body>
-                        <Title>HomeScreen</Title>
+                        <Title>Home</Title>
                     </Body>
                     <Right />
-                </Header>
+                </Header> */}
                 <Content padder>
                     <Card>
                         <CardItem>
