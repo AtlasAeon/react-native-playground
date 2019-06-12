@@ -1,14 +1,9 @@
-import { NavigationScreenProp, NavigationScene } from 'react-navigation';
 import { Left, Button, Icon, Title, Body, Right, Header } from 'native-base';
 import { View } from 'react-native';
 import React from 'react';
+import { HeaderProps } from 'react-navigation';
 
-export interface Prop {
-    navigation: NavigationScreenProp<{}>;
-    scene: NavigationScene;
-}
-
-const AppHeader = (props: Prop) => {
+const AppHeader = (props: HeaderProps) => {
     const { navigation, options } = props.scene.descriptor;
     return (
         <View>
@@ -19,7 +14,7 @@ const AppHeader = (props: Prop) => {
                     </Button>
                 </Left>
                 <Body>
-                    <Title>{options.title}</Title>
+                    <Title>{options.headerTitle}</Title>
                 </Body>
                 <Right />
             </Header>

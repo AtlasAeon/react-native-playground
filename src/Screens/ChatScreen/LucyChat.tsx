@@ -1,45 +1,29 @@
 import React, { Component } from 'react';
+import { Container, Content, Input, Item, Label, Button, Text } from 'native-base';
 import {
-    Container,
-    Body,
-    Content,
-    Header,
-    Left,
-    Right,
-    Icon,
-    Title,
-    Input,
-    Item,
-    Label,
-    Button,
-    Text,
-} from 'native-base';
-import { NavigationScreenProp, NavigationActions, NavigationState } from 'react-navigation';
+    NavigationActions,
+    NavigationScreenConfigProps,
+    NavigationScreenProp,
+    NavigationRoute,
+} from 'react-navigation';
 
-interface Prop {
-    navigation: NavigationScreenProp<NavigationState>;
-}
+export default class LucyChat extends Component<NavigationScreenConfigProps> {
+    static navigationOptions = ({ navigation }: NavigationScreenConfigProps) => {
+        const { params } = navigation.state;
 
-export default class LucyChat extends Component<Prop> {
-    static navigationOptions = {
-        Title: 'Lucy',
+        return { title: params ? (params.title ? params.title : 'Lucy Chat') : 'Lucy Chat' };
     };
+
+    componentDidMount() {
+        const { navigation } = this.props;
+        let _title = 'Lucy Chat';
+        navigation.setParams({ title: _title });
+    }
 
     render() {
         const { navigation } = this.props;
         return (
             <Container>
-                <Header>
-                    <Left>
-                        <Button transparent onPress={() => navigation.openDrawer()}>
-                            <Icon name="menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Lucy Chat</Title>
-                    </Body>
-                    <Right />
-                </Header>
                 <Content padder>
                     <Item floatingLabel style={{ marginTop: 20 }}>
                         <Label>Lucy Chat</Label>
@@ -54,7 +38,7 @@ export default class LucyChat extends Component<Prop> {
                                 routeName: 'Profile',
                                 params: { name: 'Lucy' },
                             });
-                            this.props.navigation.dispatch(navigationAction);
+                            navigation.dispatch(navigationAction);
                         }}
                     >
                         <Text>Goto Lucy Profile</Text>

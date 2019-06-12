@@ -1,30 +1,8 @@
 import React, { Component } from 'react';
-import {
-    Container,
-    Body,
-    Content,
-    Header,
-    Left,
-    Right,
-    Icon,
-    Title,
-    Input,
-    Item,
-    Label,
-    Button,
-    Text,
-} from 'native-base';
-import { NavigationScreenProp, NavigationActions } from 'react-navigation';
+import { Container, Content, Input, Item, Label, Button, Text } from 'native-base';
+import { NavigationActions, NavigationScreenConfigProps } from 'react-navigation';
 
-interface Params {
-    name: string;
-}
-
-interface Prop {
-    navigation: NavigationScreenProp<{}, Params>;
-}
-
-export default class NineChat extends Component<Prop> {
+export default class NineChat extends Component<NavigationScreenConfigProps> {
     static navigationOptions = {
         title: 'Nine',
     };
@@ -33,17 +11,6 @@ export default class NineChat extends Component<Prop> {
         const { navigation } = this.props;
         return (
             <Container>
-                <Header>
-                    <Left>
-                        <Button transparent onPress={() => navigation.openDrawer()}>
-                            <Icon name="menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Nine Chat</Title>
-                    </Body>
-                    <Right />
-                </Header>
                 <Content padder>
                     <Item floatingLabel style={{ marginTop: 20 }}>
                         <Label>Nine Chat</Label>
