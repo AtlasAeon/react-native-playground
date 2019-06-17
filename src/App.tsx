@@ -8,14 +8,31 @@
  * @format
  */
 
+import AWSAppSyncClient from 'aws-appsync';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost';
+import { Rehydrated } from 'aws-appsync-react';
+
 import { createAppContainer, createStackNavigator, HeaderProps } from 'react-navigation';
-import HomeScreen from './src/Screens/HomeScreen/index';
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+
+import HomeScreen from './Screens/HomeScreen/index';
 
 interface State {
     isReady: boolean;
 }
+
+const client = new AWSAppSyncClient({
+    url: AppSyncConfig.graphqlEndpoint,
+    region: AppSyncConfig.region,
+    auth: {
+        type: AppSyncConfig.authenticationType,
+        apiKey: AppSyncConfig.apiKey,
+        // jwtToken: async () => token, // Required when you use Cognito UserPools OR OpenID Connect. token object is obtained previously
+    },
+    isOfflineEnabled: true,
+});
 
 const AppNavigator = HomeScreen;
 
@@ -35,6 +52,10 @@ export default class App extends Component<{}, State> {
         if (!this.state.isReady) {
             return <Text>Loading...</Text>;
         }
-        return <AppContainer />;
+        return (
+            <ApolloProvider client={client}>
+                <AppContainer />
+            </ApolloProvider>
+        );
     }
 }
