@@ -23,17 +23,6 @@ interface State {
     isReady: boolean;
 }
 
-const client = new AWSAppSyncClient({
-    url: AppSyncConfig.graphqlEndpoint,
-    region: AppSyncConfig.region,
-    auth: {
-        type: AppSyncConfig.authenticationType,
-        apiKey: AppSyncConfig.apiKey,
-        // jwtToken: async () => token, // Required when you use Cognito UserPools OR OpenID Connect. token object is obtained previously
-    },
-    isOfflineEnabled: true,
-});
-
 const AppNavigator = HomeScreen;
 
 const AppContainer = createAppContainer(AppNavigator);

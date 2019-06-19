@@ -8,7 +8,6 @@ interface State {}
 interface Props {
     navigation: NavigationScreenProp<State>;
     children: never;
-    //children?: import('react').ReactNode;
 }
 export default class HomeScreen extends Component<Props, State> {
     navigationOptions = {
