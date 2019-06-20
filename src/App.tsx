@@ -17,7 +17,7 @@ import { createAppContainer, createStackNavigator, HeaderProps } from 'react-nav
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-import HomeScreen from './Screens/HomeScreen/index';
+import {HomeScreen} from './screens';
 
 interface State {
     isReady: boolean;

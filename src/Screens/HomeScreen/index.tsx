@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import HomeScreen from './HomeScreen';
-import MainScreenNavigator from '../ChatScreen/index';
+import HomeScreenComponent from './HomeScreen.component';
+import {ChatScreen} from '../ChatScreen/index';
 import ProfileScreen from '../ProfileScreen/index';
 import SideBar from '../../components/SideBar/SideBar';
 import {
@@ -15,7 +15,7 @@ import AppHeader from '../../components/AppHeader/AppHeader';
 
 const Home = createStackNavigator({
     Home: {
-        screen: HomeScreen,
+        screen: HomeScreenComponent,
         navigationOptions: {
             header: (props: HeaderProps) => <AppHeader {...props} />,
             headerTitle: 'Home',
@@ -68,4 +68,4 @@ const config: DrawerNavigatorConfig = {
 
 const HomeScreenRouter = createDrawerNavigator(routeMap, config);
 
-export default HomeScreenRouter;
+export const HomeScreen = HomeScreenRouter;

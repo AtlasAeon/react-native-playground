@@ -21,10 +21,16 @@ module.exports = {
             allowTypedFunctionExpressions: true,
         },
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
-        'react/display-name': ['warn', { 'ignoreTranspilerName': false }],
+        'react/display-name': ['warn', { ignoreTranspilerName: false }],
         '@typescript-eslint/no-empty-interface': 'warn',
     },
     settings: {
+        'import/resolver': {
+            node: {
+                paths: ['./src'],
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
         react: {
             version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
         },

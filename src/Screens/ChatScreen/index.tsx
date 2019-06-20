@@ -47,4 +47,4 @@ const MainScreenNavigator = createBottomTabNavigator(routeConfig, {
     tabBarComponent: footerTab,
 });
 
-export default MainScreenNavigator;
+export const ChatScreen = MainScreenNavigator;

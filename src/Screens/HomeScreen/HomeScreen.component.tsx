@@ -9,7 +9,7 @@ interface Props {
     navigation: NavigationScreenProp<State>;
     children: never;
 }
-export default class HomeScreen extends Component<Props, State> {
+export default class HomeScreenComponent extends Component<Props, State> {
     navigationOptions = {
         headerTitle: 'Home',
     };
